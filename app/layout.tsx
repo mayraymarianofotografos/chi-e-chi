@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     title: 'Chi è chi',
   },
   other: {
-    "mobile-web-app-capable": "yes"
-  }
+    'mobile-web-app-capable': 'yes',
+  },
 }
 
 export const viewport: Viewport = {
@@ -47,21 +47,21 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icon-192.png" />
       </head>
       <body className="bg-gray-950 text-white min-h-screen antialiased">
-  <main className="pb-12">
-    {children}
-  </main>
-  <footer className="fixed bottom-0 inset-x-0 py-3 text-center text-xs text-gray-600 bg-gray-950/80 backdrop-blur-sm">
-    By:{' '}
-    
-      href="https://mayraymarianofotografos.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-purple-500 hover:text-purple-400 transition-colors"
-    >
-      Mayra Manavella Fotógrafa
-    </a>
-  </footer>
-</body>
+        <main className="pb-12">
+          {children}
+        </main>
+        <footer className="fixed bottom-0 inset-x-0 py-3 text-center text-xs text-gray-600 bg-gray-950/80 backdrop-blur-sm">
+          By:{' '}
+          
+            href="https://mayraymarianofotografos.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-purple-500 hover:text-purple-400 transition-colors"
+          >
+            Mayra Manavella Fotógrafa
+          </a>
+        </footer>
+      </body>
     </html>
   )
 }
