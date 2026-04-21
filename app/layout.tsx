@@ -2,30 +2,15 @@ import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-})
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-playfair',
-})
+const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' })
+const playfair = Playfair_Display({ subsets: ['latin'], display: 'swap', variable: '--font-playfair' })
 
 export const metadata: Metadata = {
-  title: 'Chi è chi',
+  title: 'Chi e chi',
   description: 'Conosci tutti gli invitati prima di arrivare',
   manifest: '/manifest.json',
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: 'black-translucent',
-    title: 'Chi è chi',
-  },
-  other: {
-    'mobile-web-app-capable': 'yes',
-  },
+  appleWebApp: { capable: true, statusBarStyle: 'black-translucent', title: 'Chi e chi' },
+  other: { 'mobile-web-app-capable': 'yes' },
 }
 
 export const viewport: Viewport = {
@@ -36,11 +21,7 @@ export const viewport: Viewport = {
   userScalable: false,
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="it" className={`${inter.variable} ${playfair.variable}`}>
       <head>
@@ -51,15 +32,7 @@ export default function RootLayout({
           {children}
         </main>
         <footer className="fixed bottom-0 inset-x-0 py-3 text-center text-xs text-gray-600 bg-gray-950/80 backdrop-blur-sm">
-          By:{' '}
-          
-            href="https://mayraymarianofotografos.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-purple-500 hover:text-purple-400 transition-colors"
-          >
-            Mayra Manavella Fotógrafa
-          </a>
+          By: <a href="https://mayraymarianofotografos.com" target="_blank" rel="noopener noreferrer" className="text-purple-500 hover:text-purple-400 transition-colors">Mayra Manavella Fotografa</a>
         </footer>
       </body>
     </html>
