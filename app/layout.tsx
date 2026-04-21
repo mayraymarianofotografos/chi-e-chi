@@ -27,11 +27,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="apple-touch-icon" href="/icon-192.png" />
       </head>
-      <body className="bg-gray-950 text-white min-h-screen antialiased">
+     <body className="bg-[#FAFAFA] text-gray-900 min-h-screen antialiased">
         <main className="pb-12">
           {children}
         </main>
-        <footer className="fixed bottom-0 inset-x-0 py-3 text-center text-xs text-gray-600 bg-gray-950/80 backdrop-blur-sm">
+       <footer className="fixed bottom-0 inset-x-0 py-3 text-center text-xs text-gray-400 bg-[#FAFAFA]">
           By: <a href="https://mayraymarianofotografos.com" target="_blank" rel="noopener noreferrer" className="text-purple-500 hover:text-purple-400 transition-colors">Mayra Manavella Fotografa</a>
         </footer>
       </body>
