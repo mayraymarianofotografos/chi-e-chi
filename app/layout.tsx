@@ -9,8 +9,30 @@ export const metadata: Metadata = {
   title: 'Chi e chi',
   description: 'Conosci tutti gli invitati prima di arrivare',
   manifest: '/manifest.json',
-  appleWebApp: { capable: true, statusBarStyle: 'black-translucent', title: 'Chi e chi' },
+  appleWebApp: { capable: true, statusBarStyle: 'default', title: 'Chi e chi' },
   other: { 'mobile-web-app-capable': 'yes' },
+  openGraph: {
+    title: 'Chi e chi',
+    description: 'Conosci tutti gli invitati prima di arrivare',
+    url: 'https://chi-e-chi.vercel.app',
+    siteName: 'Chi e chi',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Chi e chi - Conosci gli invitati',
+      },
+    ],
+    locale: 'it_IT',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Chi e chi',
+    description: 'Conosci tutti gli invitati prima di arrivare',
+    images: ['/og-image.png'],
+  },
 }
 
 export const viewport: Viewport = {
