@@ -7,6 +7,7 @@ import { supabase } from '@/lib/supabase'
 import { uploadVideoToCloudinary } from '@/lib/cloudinary'
 
 const GROUP_TAGS = [
+  'Tutti',
   'Famiglia Sposa',
   'Famiglia Sposo',
   'Amici Sposa',
@@ -241,9 +242,12 @@ export default function JoinPage() {
             {weddingLabel}
           </p>
           {name.trim().length > 0 && (
-            <p className="text-emerald-600 font-medium text-xs mt-3 font-sans animate-subtle-pulse">
-              Hai già caricato un video? Inserisci solo il tuo nome e ti portiamo al muro 🎬
-            </p>
+            <div className="bg-red-50 border border-red-200 p-4 rounded-none mt-4 animate-subtle-pulse">
+              <p className="text-red-600 font-bold text-base md:text-lg leading-snug">
+                Hai già caricato un video? <br className="hidden md:block" />
+                Inserisci solo il tuo nome e ti portiamo al muro 🎬
+              </p>
+            </div>
           )}
         </div>
 

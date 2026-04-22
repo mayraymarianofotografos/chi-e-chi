@@ -31,8 +31,31 @@ export default function MuralPage() {
   // Si openGuestIndex es null, mostramos la grilla. Si es un número, mostramos el feed de videos.
   const [openGuestIndex, setOpenGuestIndex] = useState<number | null>(null)
 
+  const handleOpenVideo = (idx: number) => {
+    window.history.pushState({ mural: true }, '')
+    setOpenGuestIndex(idx)
+  }
+
+  const handleCloseVideo = () => {
+    if (window.history.state?.mural) {
+      window.history.back()
+    }
+    setOpenGuestIndex(null)
+  }
+
   // Filtro de grupos (opcional, para la grilla)
   const [activeTag, setActiveTag] = useState<string>('Tutti')
+
+  useEffect(() => {
+    // Escuchar el botón atrás del navegador
+    const handlePopState = () => {
+      if (openGuestIndex !== null) {
+        setOpenGuestIndex(null)
+      }
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [openGuestIndex])
 
   useEffect(() => {
     async function loadData() {
@@ -90,7 +113,7 @@ export default function MuralPage() {
     }
   })
   
-  const tags = ['Tutti', ...Array.from(allTags)]
+  const tags = ['Tutti', ...Array.from(allTags).filter(t => t !== 'Tutti')]
   const filteredGuests = activeTag === 'Tutti' 
     ? guests 
     : guests.filter(g => g.group_tag && g.group_tag.split(',').map(t => translateLegacyTag(t.trim())).includes(activeTag))
@@ -118,7 +141,7 @@ export default function MuralPage() {
       <FullscreenFeed 
         guests={filteredGuests} 
         initialIndex={openGuestIndex} 
-        onClose={() => setOpenGuestIndex(null)} 
+        onClose={handleCloseVideo} 
         translateLegacyTag={translateLegacyTag}
       />
     )
@@ -165,7 +188,7 @@ export default function MuralPage() {
             {filteredGuests.map((guest, idx) => (
               <div 
                 key={guest.id}
-                onClick={() => setOpenGuestIndex(idx)}
+                onClick={() => handleOpenVideo(idx)}
                 className="group relative aspect-[9/16] rounded-none overflow-hidden cursor-pointer bg-white border border-stone shadow-sm transform transition-transform hover:-translate-y-1 active:scale-95"
               >
                 {/* miniatura cargada desde cloudinary */}
